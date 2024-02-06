@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Jumping : MonoBehaviour
 {
-    private Rigidbody _playerRb;
     public float JumpForce = 10f;
     public float GravityModifier = 1f;
-    public bool isOnGround = true;
     public float turnSpeed = 20f;
     public float moveSpeed = 1f;
+    public float OutOfBounds = -10f;
+    public bool isOnGround = true;
     Vector3 m_Movement;
     Rigidbody m_Rigidbody;
     Quaternion m_Rotation = Quaternion.identity;
+    private Vector3 _startingPosition;
+    private Vector3 _endingPosition;
+    private Rigidbody _playerRb;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -40,6 +43,7 @@ public class Jumping : MonoBehaviour
         _playerRb = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
         m_Rigidbody = GetComponent<Rigidbody>();
+        _startingPosition = transform.position;
         
     }
 
@@ -51,6 +55,11 @@ public class Jumping : MonoBehaviour
             _playerRb.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
+
+        if(transform.position.y < OutOfBounds)
+        {
+            transform.position = _startingPosition;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,6 +67,14 @@ public class Jumping : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Checkpoint"))
+        {
+            _startingPosition = other.gameObject.transform.position;
         }
     }
 }
