@@ -14,8 +14,9 @@ public class Jumping : MonoBehaviour
     Rigidbody m_Rigidbody;
     Quaternion m_Rotation = Quaternion.identity;
     private Vector3 _startingPosition;
-    private Vector3 _endingPosition;
+    private Vector3 _checkpointPosition;
     private Rigidbody _playerRb;
+    private bool _isAtCheckpoint = false;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -58,8 +59,16 @@ public class Jumping : MonoBehaviour
 
         if(transform.position.y < OutOfBounds)
         {
-            transform.position = _startingPosition;
+            if(_isAtCheckpoint)
+            {
+                transform.position = _checkpointPosition;
+            }
+            else
+            {
+                transform.position = _startingPosition;
+            }
         }
+            
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -68,13 +77,34 @@ public class Jumping : MonoBehaviour
         {
             isOnGround = true;
         }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            transform.position = _startingPosition;
+
+             if(_isAtCheckpoint)
+            {
+                transform.position = _checkpointPosition;
+            }
+            else
+            {
+                transform.position = _startingPosition;
+            }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Checkpoint"))
         {
-            _startingPosition = other.gameObject.transform.position;
+            _isAtCheckpoint = true;
+            _checkpointPosition = other.gameObject.transform.position;
+        }
+
+        if(other.gameObject.CompareTag("Endpoint"))
+        {
+            transform.position = _startingPosition;
+            _isAtCheckpoint = false;
         }
     }
 }
