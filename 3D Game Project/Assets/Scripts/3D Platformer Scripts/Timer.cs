@@ -18,16 +18,20 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeRemaining > 0)
+        if(timerIsRunning)
         {
-            timeRemaining -= Time.deltaTime;
-            DisplayTime(timeRemaining);
-        }
-        else
-        {
-            timeRemaining = 0;
-            timerIsRunning = false;
-            GameObject.Find("UI Object").GetComponent<SceneFader>().FadeInUI();
+
+            if(timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            }
+            else
+            {
+                timeRemaining = 0;
+                timerIsRunning = false;
+                GameObject.Find("UI Object").GetComponent<SceneFader>().FadeInUI();
+            }
         }
     }
 
@@ -43,6 +47,6 @@ public class Timer : MonoBehaviour
     public void StartGameTimer()
     {
         timerIsRunning = true;
-        timeRemaining = 20;
+        timeRemaining = 90;
     }
 }

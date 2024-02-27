@@ -1871,7 +1871,7 @@ GameObject:
   - component: {fileID: 119473292}
   m_Layer: 0
   m_Name: Spinner (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3299,6 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d706f95c275804e3c89c96e16be2fdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!64 &218340802
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3938,7 +3939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6ff2b91776a47b39c241603bc7fdc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 20
+  timeRemaining: 90
   timerIsRunning: 0
   timerText: {fileID: 1098919229}
 --- !u!4 &252896867
@@ -5146,7 +5147,7 @@ GameObject:
   - component: {fileID: 352736468}
   m_Layer: 0
   m_Name: Spinner (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6917,6 +6918,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0.5300001, z: 4}
   m_Center: {x: 0, y: 0.265, z: 0}
+--- !u!1 &488311845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488311846}
+  - component: {fileID: 488311847}
+  m_Layer: 0
+  m_Name: Checkpoint Area
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &488311846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488311845}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1973869881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &488311847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488311845}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.0014334, y: 0.7109463, z: 3.962494}
+  m_Center: {x: 0, y: 1.2139139, z: 1.6394831e-15}
 --- !u!1 &490875780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 51d1c501b61ab43659e1cb11688faa9e, type: 3}
@@ -7153,6 +7207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d706f95c275804e3c89c96e16be2fdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!4 &502947598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23aaaeee2e3634148af799e28d6ccd3b, type: 3}
@@ -7432,7 +7487,7 @@ GameObject:
   - component: {fileID: 519431379}
   m_Layer: 0
   m_Name: Spinner (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8056,7 +8111,7 @@ GameObject:
   - component: {fileID: 543705110}
   m_Layer: 0
   m_Name: Spinner (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8993,7 +9048,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: e05e583c894f242ce9aad828bc6a2be1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 488311846}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e05e583c894f242ce9aad828bc6a2be1, type: 3}
       insertIndex: -1
@@ -11295,7 +11353,7 @@ GameObject:
   - component: {fileID: 803071246}
   m_Layer: 0
   m_Name: Spinner (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12666,7 +12724,7 @@ GameObject:
   - component: {fileID: 876555088}
   m_Layer: 0
   m_Name: Spinner (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16969,6 +17027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d706f95c275804e3c89c96e16be2fdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!4 &1163890262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23aaaeee2e3634148af799e28d6ccd3b, type: 3}
@@ -21438,6 +21497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d706f95c275804e3c89c96e16be2fdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!4 &1453615965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23aaaeee2e3634148af799e28d6ccd3b, type: 3}
@@ -25133,7 +25193,7 @@ GameObject:
   - component: {fileID: 1707564758}
   m_Layer: 0
   m_Name: Spinner (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27373,7 +27433,7 @@ GameObject:
   - component: {fileID: 1838459062}
   m_Layer: 0
   m_Name: Spinner
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29265,8 +29325,13 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 0.50000066, z: 4}
-  m_Center: {x: 0, y: 0.25000027, z: 0}
+  m_Size: {x: 4, y: 0.6218709, z: 4}
+  m_Center: {x: 0, y: 0.3109352, z: -3.3966233e-16}
+--- !u!4 &1973869881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e05e583c894f242ce9aad828bc6a2be1, type: 3}
+  m_PrefabInstance: {fileID: 588721116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1974543535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b145e844ac5fa4cc7824ad1f07af14b5, type: 3}
@@ -30920,6 +30985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d706f95c275804e3c89c96e16be2fdd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!4 &2036156068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23aaaeee2e3634148af799e28d6ccd3b, type: 3}
