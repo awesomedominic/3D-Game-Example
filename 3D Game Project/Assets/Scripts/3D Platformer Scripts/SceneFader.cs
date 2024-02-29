@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SceneFader : MonoBehaviour
 {
     public CanvasGroup sceneCover;
+    public Button startButton;
 
     [SerializeField] private bool _fadeIn;
     [SerializeField] private bool _fadeOut;
@@ -39,6 +40,7 @@ public class SceneFader : MonoBehaviour
                 if(sceneCover.alpha == 0)
                 {
                     _fadeOut = false;
+                    startButton.gameObject.SetActive(false);
                 }
             }
         }
