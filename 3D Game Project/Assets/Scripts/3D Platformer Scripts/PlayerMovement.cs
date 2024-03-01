@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float JumpForce = 10f;
     public float GravityModifier = 1f;
     public bool isOnGround = true;
+    public bool isGameOver = false;
+    public CanvasGroup endScreen;
     Vector3 m_Movement;
     Rigidbody m_Rigidbody;
     Quaternion m_Rotation = Quaternion.identity;
@@ -18,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
+        isGameOver = false;
     }
 
     void Update()
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * moveSpeed * Time.deltaTime);
         m_Rigidbody.MoveRotation (m_Rotation);
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,5 +65,14 @@ public class PlayerMovement : MonoBehaviour
     public bool IsPlayerOnGround()
     {
         return isOnGround;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Endpoint"))
+        {
+            isGameOver = true;
+            endScreen.gameObject.SetActive(true);
+        }
     }
 }

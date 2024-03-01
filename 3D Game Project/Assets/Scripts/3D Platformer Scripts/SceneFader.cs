@@ -59,6 +59,10 @@ public class SceneFader : MonoBehaviour
         //sceneCover.alpha = 1;
         _fadeOut = true;
         GameObject.Find("UI Object").GetComponent<Timer>().StartGameTimer();
+    }
 
+    public void EndGame()
+    {
+    
     }
 }
