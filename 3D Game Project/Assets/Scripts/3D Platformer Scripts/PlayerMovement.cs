@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float GravityModifier = 1f;
     public bool isOnGround = true;
     public bool isGameOver = false;
-    public CanvasGroup endScreen;
     Vector3 m_Movement;
     Rigidbody m_Rigidbody;
     Quaternion m_Rotation = Quaternion.identity;
@@ -72,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Endpoint"))
         {
             isGameOver = true;
-            endScreen.gameObject.SetActive(true);
         }
     }
 }
